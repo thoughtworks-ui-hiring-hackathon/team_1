@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux';
-import simpleReducer from './simple-reducer';
+import movies from './movies';
 
-export default combineReducers({
-	simpleReducer
+let Reducer = combineReducers({
+	movies
 });
+
+export default Reducer;

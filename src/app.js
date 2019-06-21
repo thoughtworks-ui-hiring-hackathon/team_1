@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+/*import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import logo from './logo.svg';
 import './scss/style.scss';
@@ -36,3 +36,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+*/

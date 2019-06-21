@@ -1,20 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore,applyMiddleware} from "redux";
 import { Provider } from 'react-redux';
+import Thunk from "redux-thunk";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../src/components/screens/Home';
 import Explore from '../src/components/screens/Explore';
-import configureStore from './store';
+import Reducer from "../src/reducers/root-reducer";
 import './scss/_index.css';
 import App from './app';
 import * as ScreenConstants from '../src/constants/screen-names';
+import Navigation from "../src/components/Ui/Navigation";
+
+let store= createStore(Reducer,applyMiddleware(Thunk));
 
 function getPath(screenName) {
   return `/${screenName}`;
 }
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
+  <Provider store={store}>
+    <Navigation/>
     <Router>
       <Route exact path="/" component={Home} />
       <Route
