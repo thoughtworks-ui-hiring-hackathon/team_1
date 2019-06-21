@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './scss/style.scss';
-import Navigation from "../src/components/Ui/Navigation";
+import Navigation from '../src/components/ui/Navigation';
 class App extends Component {
-	render() {
-		return (
-			<div className="App">
+  render() {
+    return (
+      <div className="App">
         <Navigation />
-			</div>
-		);
-	}
+      </div>
+    );
+  }
 }
 export default App;

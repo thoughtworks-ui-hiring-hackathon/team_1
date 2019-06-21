@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import ReactStars from 'react-stars';
 import { Image } from 'pure-react-carousel';
+import StarRatings from 'react-star-ratings';
+import '../../scss/ui/_carousel.scss';
 
 type MovieCardProps = {
   image: string,
@@ -23,11 +24,25 @@ class MovieCard extends PureComponent<MovieCardProps, MovieCardState> {
   ratingsChange = () => {};
 
   renderRatings(ratings) {
-    return <ReactStars count={ratings} size={24} color2={'black'} />;
+    return (
+      <StarRatings
+        rating={ratings}
+        starDimensions={'20px'}
+        starSpacing={'5px'}
+      />
+    );
+  }
+
+  renderSeeMore(id) {
+    return (
+      <a href={'/movie/' + id} style={{ color: 'blue' }}>
+        Show More
+      </a>
+    );
   }
 
   render() {
-    const { image, title, genre, ratings } = this.props;
+    const { image, title, genre, ratings, id } = this.props;
 
     return (
       <div style={{ padding: 20 }}>
@@ -35,6 +50,7 @@ class MovieCard extends PureComponent<MovieCardProps, MovieCardState> {
         <p className="movie-card-title">{title}</p>
         {this.renderGenre(genre)}
         {this.renderRatings(ratings)}
+        {this.renderSeeMore(id)}
       </div>
     );
   }

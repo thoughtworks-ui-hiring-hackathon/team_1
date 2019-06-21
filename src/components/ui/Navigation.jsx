@@ -4,7 +4,7 @@ class Navigation extends React.Component{
   render(){
     return(
       <header>
-        <ul>
+        <ul className="menu">
           <li><a href="/">Home</a></li>
           <li><a href="/explore">Explore</a></li>
         </ul>

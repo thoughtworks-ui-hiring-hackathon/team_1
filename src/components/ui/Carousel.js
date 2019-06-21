@@ -22,6 +22,7 @@ class CarouselHelper extends PureComponent<CarouselProps, CarouselState> {
           genre={movie.genre_ids}
           ratings={movie.vote_average}
           genreMap={this.props.genreMap}
+          id={movie.id}
         />
       );
     });
@@ -47,17 +48,22 @@ class CarouselHelper extends PureComponent<CarouselProps, CarouselState> {
     return carouselArray;
   }
 
+  getSlides(carouselElements) {
+    console.log(carouselElements.length);
+    let slides = [];
+    for (let i = 0; i < carouselElements.length; i++) {
+      slides = <Slide>{carouselElements[i]} </Slide>;
+    }
+    return slides;
+  }
+
   render() {
     const { data } = this.props;
     const carouselElements = this.getCarouselCards();
-    console.log(carouselElements);
-    return <div>{this.getCarouselCards()}</div>;
     return (
       <CarouselProvider totalSlides={data.length / 4}>
         <ButtonBack>Back</ButtonBack>
-        <Slider>
-          <Slide>{carouselElements} </Slide>
-        </Slider>
+        <Slider>{this.getSlides(carouselElements)}</Slider>
         <ButtonNext>Next</ButtonNext>
       </CarouselProvider>
     );
