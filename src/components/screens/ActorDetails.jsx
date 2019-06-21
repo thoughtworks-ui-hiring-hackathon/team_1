@@ -16,7 +16,6 @@ class ActorDetails extends React.Component{
   getActorDetails = async (id) =>{
     let response_actor = await axios.get(`https://api.themoviedb.org/3/person/${id}?api_key=${API_KEY}`);
     let response_filmography = await axios.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${API_KEY}&language=en-US`);
-    console.log(response_filmography);
     let name = response_actor.data.name;
     let dob = response_actor.data.birthday;
     let desc = response_actor.data.biography;
