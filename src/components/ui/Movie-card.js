@@ -27,8 +27,8 @@ class MovieCard extends PureComponent<MovieCardProps, MovieCardState> {
     return (
       <StarRatings
         rating={ratings}
-        starDimensions={'20px'}
-        starSpacing={'5px'}
+        starDimensions={'5px'}
+        starSpacing={'2px'}
       />
     );
   }
@@ -49,8 +49,15 @@ class MovieCard extends PureComponent<MovieCardProps, MovieCardState> {
         <Image src={image} alt={'poster'} width={'320'} height={'170'} />
         <p className="movie-card-title">{title}</p>
         {this.renderGenre(genre)}
-        {this.renderRatings(ratings)}
-        {this.renderSeeMore(id)}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}>
+          {this.renderRatings(ratings)}
+          {this.renderSeeMore(id)}
+        </div>
       </div>
     );
   }

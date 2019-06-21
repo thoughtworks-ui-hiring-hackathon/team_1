@@ -18,6 +18,7 @@ class MovieDetails extends React.Component{
   }
   getMovieDetails = async (movie_id) =>{
       let movieDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US&append_to_response=credits`);
+      let relatedMovies = await axios.get(`https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=${API_KEY}&language=en-US&append_to_response=credits`);
       let name = movieDetails.data.original_title;
       let url = baseURL+movieDetails.data.poster_path;
       console.log(url);
