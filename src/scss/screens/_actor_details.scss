@@ -1,0 +1,16 @@
+.actor-information-container {
+  display:grid;
+  grid-template-columns:30% 60%;
+  justify-content:space-around;
+  max-height:300px;
+  grid-template-rows:400px;
+  overflow:ellipses;
+}
+img{
+  height:400px;
+}
+
+.actor-desc{
+  background-color:#dcdcdc;
+  padding:16px;
+}
