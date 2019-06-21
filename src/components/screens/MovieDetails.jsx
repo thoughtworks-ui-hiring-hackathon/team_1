@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
+import StarRatings from "react-star-ratings";
 import "../../scss/screens/_movie_details.scss";
+import API_KEY from "../../secret/secret";
 
-const API_KEY = "2bf60fc5d05776d2c899be78d34161c4";
 let baseURL= "https://image.tmdb.org/t/p/w500/";
 class MovieDetails extends React.Component{
   state={
@@ -34,7 +35,7 @@ class MovieDetails extends React.Component{
         }
         return director;
       },"");
-      let movie_rating = Math.round(movieDetails.data.vote_average/2);
+      let movie_rating = Math.floor((movieDetails.data.vote_average/2));
       this.setState(()=>{
         return{
           url,
@@ -53,7 +54,9 @@ class MovieDetails extends React.Component{
   render(){
     return(
       <div className="movie-details-container">
-        <section className="movie-poster"><img alt="movie-poster"src={this.state.url}/></section>
+        <section className="movie-poster"><img alt="movie-poster" src={this.state.url}/>
+        {this.state.url!=="" &&<div class="favorite">Mark as favorite<i style={{"color":"red"}} class="fa fa-heart" aria-hidden="true"></i></div>}
+        </section>
         <section className="details-cast">
           <section className="movie-desc"><h1>{this.state.name}</h1><p>{this.state.desc}</p></section> 
           <section className="movie-cast">
@@ -70,7 +73,11 @@ class MovieDetails extends React.Component{
               <div>{this.state.director}</div></div>
             <div>
               <div class="label"><strong>Movie Rating</strong></div>
-              <div>{this.state.genre.movie_rating}</div>
+              <div><StarRatings
+                rating={this.state.movie_rating}
+                starDimension="20px"
+                starSpacing="5px"
+              /></div>
             </div>
           </section>   
         </section>
