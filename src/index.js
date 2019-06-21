@@ -7,7 +7,7 @@ import Explore from '../src/components/screens/Explore';
 import configureStore from './store';
 import './scss/_index.css';
 import App from './app';
-import * as ScreenConstants from '../src/constants/screen-names';
+import * as ScreenConstants from './constants/Screen-names';
 
 function getPath(screenName) {
   return `/${screenName}`;
