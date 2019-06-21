@@ -9,10 +9,9 @@ import Explore from '../src/components/screens/Explore';
 import Reducer from "../src/reducers/root-reducer";
 import './scss/_index.css';
 import App from './app';
-import * as ScreenConstants from '../src/constants/screen-names';
 import Navigation from "../src/components/Ui/Navigation";
-
 let store= createStore(Reducer,applyMiddleware(Thunk));
+import * as ScreenConstants from './constants/Screen-names';
 
 function getPath(screenName) {
   return `/${screenName}`;
