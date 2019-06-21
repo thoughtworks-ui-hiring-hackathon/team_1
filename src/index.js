@@ -12,14 +12,13 @@ import App from './app';
 import Navigation from '../src/components/Ui/Navigation';
 import * as ScreenConstants from './constants/Screen-names';
 let store = createStore(Reducer, applyMiddleware(Thunk));
-
 function getPath(screenName) {
   return `/${screenName}`;
 }
 
 ReactDOM.render(
   <Provider store={store}>
-    <Navigation />
+    <App/>
     <Router>
       <Route exact path="/" component={Home} />
       <Route
